@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHONE DEALS - iPhone Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #3b82f6;
+            --primary-purple: #9333ea;
+            --primary-pink: #ec4899;
+            --light-blue: #93c5fd;
+            --light-purple: #d8b4fe;
+            --light-pink: #f472b6;
+            --gray-900: #111827;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-500: #6b7280;
+            --gray-400: #9ca3af;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --gray-50: #f9fafb;
+            --white: #ffffff;
+            --green-600: #16a34a;
+            --green-500: #22c55e;
+            --green-50: #f0fdf4;
+            --red-600: #dc2626;
+            --red-500: #ef4444;
+            --yellow-400: #facc15;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #eff6ff, #faf5ff, #fdf2f8);
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+
+        /* PROMINENT BANNER HEADER */
+        .banner-header {
+            background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 50%, #1e1e2e 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--primary-blue);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .banner-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .banner-logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .banner-logo {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner-text-section h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(to right, #00d4ff, #ff6b6b, #ffa500, #9c27b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.1em;
+            margin: 0;
+            line-height: 1.1;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .banner-tagline {
+            font-size: 1.2rem;
+            color: white;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .tagline-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #00d4ff, #ff6b6b);
+            border-radius: 2px;
+        }
+
+        /* NAVIGATION HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: linear-gradient(to right, #2563eb, #9333ea, #ec4899);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .header-logo-mini {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .header-logo-mini svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .search-container {
+            position: relative;
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1.25rem;
+            height: 1.25rem;
+            color: white;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.75rem;
+            background: white;
+            border: none;
+            border-radius: 0.5rem;
+            color: var(--gray-900);
+            font-size: 1rem;
+        }
+
+        .search-input::placeholder {
+            color: var(--gray-500);
+        }
+
+        .cart-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            color: var(--primary-purple);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .cart-button:hover {
+            background: var(--gray-100);
+        }
+
+        .cart-badge {
+            background: var(--red-500);
+            color: white;
+            border-radius: 9999px;
+            width: 1.5rem;
+            height: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* FILTER SECTION */
+        .filter-section {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-header-text {
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+
+        .filter-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            align-items: end;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .filter-select {
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.5rem;
+            background: linear-gradient(to right, #dbeafe, #e9d5ff);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .reset-button {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid #e9d5ff;
+            color: var(--primary-purple);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .reset-button:hover {
+            background: #f3e8ff;
+        }
+
+        /* PRODUCTS GRID */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .product-image-container {
+            position: relative;
+            width: 100%;
+            height: 16rem;
+            background: linear-gradient(to bottom right, #dbeafe, #e9d5ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background: linear-gradient(to right, #ef4444, #ec4899);
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: bold;
+        }
+
+        .favorite-button {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            width: 2rem;
+            height: 2rem;
+            background: white;
+            border-radius: 9999px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .favorite-button:hover {
+            transform: scale(1.1);
+        }
+
+        .heart-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--gray-400);
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        .heart-icon.active {
+            fill: var(--red-500);
+            color: var(--red-500);
+            stroke: none;
+        }
+
+        .stock-badge {
+            position: absolute;
+            bottom: 0.75rem;
+            left: 0.75rem;
+            background: var(--green-500);
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .product-content {
+            padding: 1rem;
+        }
+
+        .product-model {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-purple);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .product-name {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--gray-900);
+            margin-top: 0.5rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .product-specs {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            margin-top: 0.25rem;
+        }
+
+        .rating-container {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-top: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .stars {
+            display: flex;
+            align-items: center;
+        }
+
+        .star {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.1rem;
+        }
+
+        .star.filled {
+            color: var(--yellow-400);
+            fill: currentColor;
+        }
+
+        .star.empty {
+            color: var(--gray-300);
+            fill: currentColor;
+        }
+
+        .rating-text {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+        }
+
+        .product-price {
+            margin-bottom: 1rem;
+        }
+
+        .price-display {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+        }
+
+        .current-price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #2563eb, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .original-price {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+            text-decoration: line-through;
+        }
+
+        .product-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .view-details-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: white;
+            border: 2px solid #d8b4fe;
+            color: var(--primary-purple);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .view-details-btn:hover {
+            background: #f3e8ff;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart-btn:hover {
+            background: linear-gradient(to right, #1d4ed8, #7e22ce);
+        }
+
+        .add-to-cart-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* CART VIEW */
+        .back-button {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: none;
+            color: var(--primary-purple);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #f3e8ff;
+        }
+
+        .empty-cart {
+            background: white;
+            border-radius: 0.75rem;
+            text-align: center;
+            padding: 3rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .empty-cart-emoji {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .empty-cart-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-cart-text {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .cart-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .cart-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cart-items-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cart-item {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            display: flex;
+            gap: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item-image {
+            width: 6rem;
+            height: 6rem;
+            background: linear-gradient(to bottom right, #dbeafe, #e9d5ff);
+            border-radius: 0.5rem;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: bold;
+            color: var(--gray-900);
+        }
+
+        .cart-item-specs {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .cart-item-price {
+            font-weight: bold;
+            background: linear-gradient(to right, #2563eb, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 0.5rem;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            border: 2px solid #d8b4fe;
+            border-radius: 0.5rem;
+        }
+
+        .quantity-btn {
+            width: 2rem;
+            height: 2rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-purple);
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background: #f3e8ff;
+        }
+
+        .quantity-display {
+            padding: 0 0.75rem;
+            font-weight: 600;
+        }
+
+        .remove-button {
+            font-size: 0.875rem;
+            color: var(--red-600);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .remove-button:hover {
+            color: var(--red-700);
+        }
+
+        .cart-summary {
+            background: linear-gradient(to bottom right, #eff6ff, #faf5ff);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 10rem;
+        }
+
+        .summary-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: var(--gray-900);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-label {
+            color: var(--gray-600);
+        }
+
+        .summary-value {
+            font-weight: 600;
+        }
+
+        .free-shipping {
+            color: var(--green-600);
+        }
+
+        .summary-divider {
+            border-top: 2px solid #d8b4fe;
+            margin: 1rem 0;
+            padding-top: 1rem;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .total-label {
+            font-weight: bold;
+        }
+
+        .total-price {
+            font-size: 1.125rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #2563eb, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .checkout-button {
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .checkout-button:hover {
+            background: linear-gradient(to right, #1d4ed8, #7e22ce);
+        }
+
+        .continue-shopping-btn {
+            width: 100%;
+            padding: 1rem;
+            background: white;
+            border: 2px solid #d8b4fe;
+            color: var(--primary-purple);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .continue-shopping-btn:hover {
+            background: #f3e8ff;
+        }
+
+        .benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 0.5rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .benefit-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        /* FOOTER STYLES */
+        footer {
+            background: linear-gradient(to right, #111827, #4c1d95, #111827);
+            color: white;
+            margin-top: 3rem;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #60a5fa, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-section p {
+            color: #d1d5db;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #f472b6;
+        }
+
+        .owner-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .owner-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        .owner-icon {
+            width: 1rem;
+            height: 1rem;
+            color: #60a5fa;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .owner-name {
+            font-weight: 600;
+        }
+
+        .owner-title {
+            color: #d1d5db;
+            font-size: 0.75rem;
+        }
+
+        .owner-phone {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .owner-phone:hover {
+            color: #93c5fd;
+        }
+
+        .owner-address {
+            color: #d1d5db;
+        }
+
+        .contact-section {
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-box {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(147, 51, 234, 0.2));
+            border-radius: 0.5rem;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-box:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-box.whatsapp {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(16, 185, 129, 0.2));
+        }
+
+        .contact-box.location {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(239, 68, 68, 0.2));
+        }
+
+        .contact-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text p:first-child {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+        }
+
+        .contact-text p:last-child {
+            font-weight: bold;
+            margin-top: 0.25rem;
+        }
+
+        .footer-bottom {
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+            padding-top: 1.5rem;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+
+        /* EMPTY STATE */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .empty-state-text {
+            color: var(--gray-500);
+            font-size: 1.125rem;
+        }
+
+        /* HIDDEN VIEWS */
+        .hidden {
+            display: none !important;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .filter-controls {
+                grid-template-columns: 1fr;
+            }
+
+            .banner-text-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .banner-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .banner-logo-section {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-top {
+                flex-direction: column;
+            }
+
+            .search-container {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PROMINENT BANNER HEADER -->
+    <div class="banner-header">
+        <div class="banner-container">
+            <div class="banner-logo-section">
+                <div class="banner-logo">
+                    <svg width="120" height="120" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="40" y="20" width="120" height="160" rx="15" fill="none" stroke="#00d4ff" stroke-width="12"/>
+                        <rect x="50" y="30" width="100" height="140" rx="10" fill="#F5F5F5"/>
+                        <rect x="80" y="32" width="40" height="6" rx="3" fill="#FFC107"/>
+                        <path d="M 20 70 Q 50 40, 100 60 Q 120 70, 140 50" stroke="#ff6b6b" stroke-width="8" fill="none" stroke-linecap="round"/>
+                        <path d="M 15 85 Q 45 55, 95 75 Q 115 85, 155 65" stroke="#ffa500" stroke-width="6" fill="none" stroke-linecap="round"/>
+                        <path d="M 30 100 Q 55 80, 100 95 Q 130 105, 160 85" stroke="#9c27b0" stroke-width="6" fill="none" stroke-linecap="round"/>
+                        <path d="M 40 120 Q 60 105, 110 130 Q 140 145, 170 110" stroke="#2196f3" stroke-width="7" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="banner-text-section">
+                    <h1>PHONE DEALS</h1>
+                    <div class="banner-tagline">
+                        <div class="tagline-line"></div>
+                        <span>Dive into Irresistible Phone Deals</span>
+                        <div class="tagline-line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="header-top">
+                <a href="#" class="header-logo-mini">
+                    <svg width="40" height="40" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="40" y="20" width="120" height="160" rx="15" fill="none" stroke="white" stroke-width="12"/>
+                        <rect x="50" y="30" width="100" height="140" rx="10" fill="#F5F5F5"/>
+                        <rect x="80" y="32" width="40" height="6" rx="3" fill="#FFC107"/>
+                    </svg>
+                    PHONE DEALS
+                </a>
+                <div class="search-container">
+                    <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <input type="text" id="search-input" class="search-input" placeholder="Search iPhones..." 
+                           onkeyup="filterProducts()">
+                </div>
+                <button class="cart-button" onclick="toggleCart()">
+                    <span>🛒</span>
+                    <span id="cart-count" class="cart-badge" style="display: none;">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content">
+        <!-- SHOP VIEW -->
+        <div id="shop-view">
+            <!-- FILTER SECTION -->
+            <div class="filter-section">
+                <div class="filter-header">
+                    <span>🎯</span>
+                    <span class="filter-header-text">Filter:</span>
+                </div>
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label class="filter-label">Model</label>
+                        <select class="filter-select" id="model-filter" onchange="filterProducts()">
+                            <option value="all">All Models</option>
+                            <option value="15">iPhone 15 Series</option>
+                            <option value="14">iPhone 14 Series</option>
+                            <option value="13">iPhone 13 Series</option>
+                            <option value="12">iPhone 12 Series</option>
+                            <option value="SE">iPhone SE</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Price Range</label>
+                        <select class="filter-select" id="price-filter" onchange="filterProducts()">
+                            <option value="all">All Prices</option>
+                            <option value="under100k">Under PKR 100,000</option>
+                            <option value="100k-200k">PKR 100K - 200K</option>
+                            <option value="200k-300k">PKR 200K - 300K</option>
+                            <option value="over300k">Over PKR 300,000</option>
+                        </select>
+                    </div>
+                    <button class="reset-button" onclick="resetFilters()">Reset</button>
+                </div>
+            </div>
+
+            <!-- PRODUCTS GRID -->
+            <div id="products-grid" class="products-grid"></div>
+        </div>
+
+        <!-- CART VIEW -->
+        <div id="cart-view" class="hidden">
+            <button class="back-button" onclick="toggleCart()">← Continue Shopping</button>
+            <div id="cart-content"></div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>PHONE DEALS</h3>
+                    <p>Your trusted iPhone retailer providing authentic phones with best prices and excellent customer service.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#warranty">Warranty</a></li>
+                        <li><a href="#terms">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Why Choose Us?</h3>
+                    <ul class="footer-links">
+                        <li>✓ Authentic Products</li>
+                        <li>✓ Best Prices</li>
+                        <li>✓ Fast Delivery</li>
+                        <li>✓ Warranty</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <div class="owner-box">
+                        <div class="owner-item">
+                            <span class="owner-icon">👤</span>
+                            <div>
+                                <div class="owner-name">Ch Salman</div>
+                                <div class="owner-title">Owner</div>
+                            </div>
+                        </div>
+                        <div class="owner-item">
+                            <span class="owner-icon">📞</span>
+                            <a href="tel:03006073975" class="owner-phone">03006073975</a>
+                        </div>
+                        <div class="owner-item">
+                            <span class="owner-icon">📍</span>
+                            <div class="owner-address">
+                                <div>Rehman Plaza</div>
+                                <div>Shop #15, Katha Chok</div>
+                                <div>Khushab</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <a href="tel:03006073975" class="contact-box">
+                    <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    <div class="contact-text">
+                        <p>Call Now</p>
+                        <p>03006073975</p>
+                    </div>
+                </a>
+                <a href="https://wa.me/923006073975" target="_blank" class="contact-box whatsapp">
+                    <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.773 1.167l-.36.214-.346-.05A8.983 8.983 0 001.016 4.19c-.226 2.56 1.086 5.078 3.334 6.614l.296.202-.022.309c-.038.56.051 1.11.282 1.626-.506-.046-1.01-.163-1.466-.387C3.61 12.85 5.154 13.99 7.15 14.2c-.248.683-.485 1.355-.485 2.05 0 2.157 1.738 3.916 3.877 3.916 1.008 0 1.955-.364 2.731-1.04l.214-.198.278.05c.855.133 1.682.064 2.468-.195-.494 1.46-1.918 2.514-3.553 2.514-.586 0-1.147-.125-1.657-.369"></path>
+                    </svg>
+                    <div class="contact-text">
+                        <p>WhatsApp</p>
+                        <p>Message Us</p>
+                    </div>
+                </a>
+                <div class="contact-box location">
+                    <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"></path>
+                    </svg>
+                    <div class="contact-text">
+                        <p>Visit Us</p>
+                        <p>Rehman Plaza, Shop #15</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>© 2024 PHONE DEALS. All rights reserved. | Owner: Ch Salman</p>
+                    <p>📍 Rehman Plaza, Shop #15, Katha Chok, Khushab | ☎️ 03006073975</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // iPhone Products Data - WITH ALL IPHONE SERIES IMAGES
+        const iPhoneProducts = [
+            // iPhone 15 Series
+            {
+                id: '1',
+                name: 'iPhone 15 Pro Max',
+                model: 'iPhone 15 Pro Max',
+                price: 299999,
+                originalPrice: 349999,
+                image: 'https://placeholder-image-service.onrender.com/image/400x600?prompt=Professional product photo of iPhone 15 Pro Max in deep space black color with titanium frame showing front display with dynamic island notch and sleek modern design&id=momnaqursam72@gmail.com&customer_id=cus_ShJEBDNkoKFthH',
+                color: 'Deep Space Black',
+                storage: '256GB',
+                rating: 4.9,
+                reviews: 324,
+                inStock: true,
+                description: 'Latest flagship with A17 Pro chip, advanced cameras, and stunning display',
+                specs: ['6.7" display', 'A17 Pro chip', 'Triple camera', 'Titanium design', 'Action button']
+            },
+            {
+                id: '2',
+                name: 'iPhone 15 Pro',
+                model: 'iPhone 15 Pro',
+                price: 249999,
+                originalPrice: 299999,
+                image: 'https://placeholder-image-service.onrender.com/image/400x600?prompt=Professional product shot of iPhone 15 Pro in natural titanium finish with premium stainless steel edges showing triple rear camera system and front face display&id=momnaqursam72@gmail.com&customer_id=cus_ShJEBDNkoKFthH',
+                color: 'Natural Titanium',
+                storage: '256GB',
+                rating: 4.8,
+                reviews: 287,
+                inStock: true,
+                description: 'Powerful flagship phone with professional camera system',
+                specs: ['6.1" display', 'A17 Pro chip', 'Triple camera', 'Titanium design', 'ProMotion']
+            },
+            {
+                id: '3',
+                name: 'iPhone 15',
+                model: 'iPhone 15',
+                price: 179999,
+                originalPrice: 219999,
+                image: 'https://placeholder-image-service.onrender.com/image/400x600?prompt=Product photo of iPhone 15 in vibrant blue color with modern flat aluminum frame USB-C port and dual camera system on back display&id=momnaqursam72@gmail.com&customer_id=cus_ShJEBDNkoKFthH',
+                color: 'Blue',
+                storage: '128GB',
+                rating: 4.7,
+                reviews: 456,
+                inStock: true,
+                description: 'Great everyday phone with excellent camera and performance',
+                specs: ['6.1" display', 'A16 Bionic', 'Dual camera', 'USB-C', 'All-day battery']
+            },
+
+            // iPhone 14 Series
+            {
+                id: '4',
+                name: 'iPhone 14 Pro Max',
+                model: 'iPhone 14 Pro Max',
+                price: 219999,
+                originalPrice: 269999,
+                image: 'https://placeholder-image-service.onrender.com/image/400x600?prompt=Professional product rendering of iPhone 14 Pro Max in space black color with premium design showing front dynamic island and professional camera system with multiple lenses&id=momnaqursam72@gmail.com&customer_id=cus_ShJEBDNkoKFthH',
+                color: 'Space Black',
+                storage: '256GB',
+                rating: 4.8,
+                reviews: 512,
+                inStock: true,
+                description: 'Powerful previous generation flagship with premium features',
+                specs: ['6.7" display', 'A16 Bionic', 'Quad camera', 'Dynamic Island', 'ProMotion']
+            },
+            {
+                id: '5',
+                name: 'iPhone 14',
+                model: 'iPhone 14',
+                price: 149999,
+                originalPrice: 189999,
+                image: 'https://placeholder-image-service.onrender.com/image/400x600?prompt=Product shot of iPhone 14 in midnight black color featuring flat aluminum frame elegant design dual camera system and modern display&id=momnaqursam72@gmail.com&customer_id=cus_ShJEBDNkoKFthH',
+                color: 'Midnight',
+                storage: '128GB',
+                rating: 4.6,
+                reviews: 389,
+                inStock: true,
+                description: 'Reliable performance with excellent value for money',
+                specs: ['6.1" display', 'A15 Bionic', 'Dual camera', 'Flat design', 'Night mode']
+            },
+
+            // iPhone 13 Series
+            {
+                id: '6',
+                name: 'iPhone 13 Pro',
+                model: 'iPhone 13 Pro',
+                price: 129999,
+                originalPrice: 169999,
+                image: 'https://placeholder-image-service.onrender.com/image/400x600?prompt=Detailed product photo of iPhone 13 Pro in sierra blue color with stainless steel frame showing professional triple camera array and elegant premium design&id=momnaqursam72@gmail.com&customer_id=cus_ShJEBDNkoKFthH',
+                color: 'Sierra Blue',
+                storage: '128GB',
+                rating: 4.7,
+                reviews: 234,
+                inStock: true,
+                description: 'Premium phone with professional-grade camera',
+                specs: ['6.1" display', 'A15 Bionic', 'Triple camera', 'Stainless steel', '120Hz']
+            },
+            {
+                id: '7',
+                name: 'iPhone 13',
+                model: 'iPhone 13',
+                price: 99999,
+                originalPrice: 139999,
+                image: 'https://placeholder-image-service.onrender.com/image/400x600?prompt=Product photography of iPhone 13 in pink color with dual camera system modern notch design and contemporary glass back with aluminum frame&id=momnaqursam72@gmail.com&customer_id=cus_ShJEBDNkoKFthH',
+                color: 'Pink',
+                storage: '128GB',
+                rating: 4.5,
+                reviews: 567,
+                inStock: true,
+                description: 'Budget-friendly iPhone with solid performance',
+                specs: ['6.1" display', 'A15 Bionic', 'Dual camera', 'Night mode', 'All-day battery']
+            },
+
+            // iPhone SE
+            {
+                id: '8',
+                name: 'iPhone SE (3rd Gen)',
+                model: 'iPhone SE',
+                price: 79999,
+                originalPrice: 99999,
+                image: 'https://placeholder-image-service.onrender.com/image/400x600?prompt=Product shot of iPhone SE in red color featuring classic design with home button touch ID single camera and compact form factor&id=momnaqursam72@gmail.com&customer_id=cus_ShJEBDNkoKFthH',
+                color: 'Red',
+                storage: '64GB',
+                rating: 4.4,
+                reviews: 423,
+                inStock: true,
+                description: 'Compact and affordable iPhone for everyone',
+                specs: ['4.7" display', 'A15 Bionic', 'Single camera', 'Touch ID', 'Wireless charging']
+            },
+
+            // iPhone 12 Series
+            {
+                id: '9',
+                name: 'iPhone 12 Pro',
+                model: 'iPhone 12 Pro',
+                price: 119999,
+                originalPrice: 159999,
+                image: 'https://placeholder-image-service.onrender.com/image/400x600?prompt=Professional product image of iPhone 12 Pro in pacific blue featuring stainless steel edges square frame design triple camera system and modern display&id=momnaqursam72@gmail.com&customer_id=cus_ShJEBDNkoKFthH',
+                color: 'Pacific Blue',
+                storage: '128GB',
+                rating: 4.6,
+                reviews: 298,
+                inStock: true,
+                description: 'Premium mid-range with great camera system',
+                specs: ['6.1" display', 'A14 Bionic', 'Triple camera', 'Ceramic Shield', '5G']
+            },
+            {
+                id: '10',
+                name: 'iPhone 12',
+                model: 'iPhone 12',
+                price: 89999,
+                originalPrice: 129999,
+                image: 'https://placeholder-image-service.onrender.com/image/400x600?prompt=Product photography of iPhone 12 in purple color featuring flat frame design dual camera system modern display and contemporary smartphone design&id=momnaqursam72@gmail.com&customer_id=cus_ShJEBDNkoKFthH',
+                color: 'Purple',
+                storage: '64GB',
+                rating: 4.5,
+                reviews: 445,
+                inStock: true,
+                description: 'Great value with 5G connectivity',
+                specs: ['6.1" display', 'A14 Bionic', 'Dual camera', 'Ceramic Shield', '5G']
+            }
+        ];
+
+        // Global Variables
+        let cart = [];
+        let favorites = [];
+        let filteredProducts = [...iPhoneProducts];
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+            loadCartFromLocalStorage();
+        });
+
+        // Render Products
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            if (filteredProducts.length === 0) {
+                grid.innerHTML = '<div class="empty-state"><div class="empty-state-text">No products found matching your criteria</div></div>';
+                return;
+            }
+
+            filteredProducts.forEach(phone => {
+                const discount = Math.round(((phone.originalPrice - phone.price) / phone.originalPrice) * 100);
+                const stars = renderStars(phone.rating);
+                const isFavorite = favorites.includes(phone.id);
+
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-image-container">
+                        <img src="${phone.image}" alt="${phone.name}" class="product-image">
+                        ${discount > 0 ? `<div class="discount-badge">-${discount}%</div>` : ''}
+                        <button class="favorite-button" onclick="toggleFavorite('${phone.id}', event)">
+                            <svg class="heart-icon ${isFavorite ? 'active' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                        <div class="stock-badge">✓ In Stock</div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-model">${phone.model}</div>
+                        <h3 class="product-name">${phone.name}</h3>
+                        <p class="product-specs">${phone.color} • ${phone.storage}</p>
+                        <div class="rating-container">
+                            <div class="stars">${stars}</div>
+                            <span class="rating-text">${phone.rating} (${phone.reviews})</span>
+                        </div>
+                        <div class="product-price">
+                            <div class="price-display">
+                                <span class="current-price">PKR ${phone.price.toLocaleString()}</span>
+                                <span class="original-price">PKR ${phone.originalPrice.toLocaleString()}</span>
+                            </div>
+                        </div>
+                        <div class="product-buttons">
+                            <button class="view-details-btn" onclick="alert('Detailed view feature coming soon!')">View Details</button>
+                            <button class="add-to-cart-btn" onclick="addToCart('${phone.id}')">
+                                <span>🛒</span> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Render Stars
+        function renderStars(rating) {
+            let stars = '';
+            for (let i = 0; i < 5; i++) {
+                stars += `<svg class="star ${i < Math.floor(rating) ? 'filled' : 'empty'}" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21z"></path>
+                </svg>`;
+            }
+            return stars;
+        }
+
+        // Filter Products
+        function filterProducts() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const modelFilter = document.getElementById('model-filter').value;
+            const priceFilter = document.getElementById('price-filter').value;
+
+            filteredProducts = iPhoneProducts.filter(phone => {
+                const matchesSearch = phone.name.toLowerCase().includes(searchTerm) || 
+                                    phone.model.toLowerCase().includes(searchTerm);
+                const matchesModel = modelFilter === 'all' || phone.model.includes(modelFilter);
+                
+                let matchesPrice = true;
+                if (priceFilter === 'under100k') matchesPrice = phone.price < 100000;
+                if (priceFilter === '100k-200k') matchesPrice = phone.price >= 100000 && phone.price < 200000;
+                if (priceFilter === '200k-300k') matchesPrice = phone.price >= 200000 && phone.price < 300000;
+                if (priceFilter === 'over300k') matchesPrice = phone.price >= 300000;
+
+                return matchesSearch && matchesModel && matchesPrice;
+            });
+
+            renderProducts();
+        }
+
+        // Reset Filters
+        function resetFilters() {
+            document.getElementById('search-input').value = '';
+            document.getElementById('model-filter').value = 'all';
+            document.getElementById('price-filter').value = 'all';
+            filteredProducts = [...iPhoneProducts];
+            renderProducts();
+        }
+
+        // Toggle Favorite
+        function toggleFavorite(id, event) {
+            event.stopPropagation();
+            if (favorites.includes(id)) {
+                favorites = favorites.filter(fav => fav !== id);
+            } else {
+                favorites.push(id);
+            }
+            renderProducts();
+        }
+
+        // Add to Cart
+        function addToCart(id) {
+            const phone = iPhoneProducts.find(p => p.id === id);
+            const existing = cart.find(item => item.phone.id === id);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ phone, quantity: 1 });
+            }
+
+            saveCartToLocalStorage();
+            updateCartCount();
+            renderCart();
+        }
+
+        // Toggle Cart View
+        function toggleCart() {
+            const shopView = document.getElementById('shop-view');
+            const cartView = document.getElementById('cart-view');
+
+            shopView.classList.toggle('hidden');
+            cartView.classList.toggle('hidden');
+
+            if (!cartView.classList.contains('hidden')) {
+                renderCart();
+            }
+        }
+
+        // Render Cart
+        function renderCart() {
+            const cartContent = document.getElementById('cart-content');
+
+            if (cart.length === 0) {
+                cartContent.innerHTML = `
+                    <div class="empty-cart">
+                        <div class="empty-cart-emoji">🛒</div>
+                        <h2 class="empty-cart-title">Your cart is empty</h2>
+                        <p class="empty-cart-text">Start adding iPhones to your cart!</p>
+                        <button class="add-to-cart-btn" onclick="toggleCart()">Shop Now</button>
+                    </div>
+                `;
+                return;
+            }
+
+            let cartItemsHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                total += item.phone.price * item.quantity;
+                cartItemsHTML += `
+                    <div class="cart-item">
+                        <div class="cart-item-image">
+                            <img src="${item.phone.image}" alt="${item.phone.name}">
+                        </div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${item.phone.name}</div>
+                            <div class="cart-item-specs">${item.phone.color} • ${item.phone.storage}</div>
+                            <div class="cart-item-price">PKR ${item.phone.price.toLocaleString()}</div>
+                        </div>
+                        <div class="cart-item-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn" onclick="updateQuantity('${item.phone.id}', ${item.quantity - 1})">−</button>
+                                <span class="quantity-display">${item.quantity}</span>
+                                <button class="quantity-btn" onclick="updateQuantity('${item.phone.id}', ${item.quantity + 1})">+</button>
+                            </div>
+                            <button class="remove-button" onclick="removeFromCart('${item.phone.id}')">Remove</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartContent.innerHTML = `
+                <div class="cart-grid">
+                    <div class="cart-items-container">${cartItemsHTML}</div>
+                    <div class="cart-summary">
+                        <div class="summary-title">Order Summary</div>
+                        <div class="summary-row">
+                            <span class="summary-label">Subtotal:</span>
+                            <span class="summary-value">PKR ${total.toLocaleString()}</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-label">Shipping:</span>
+                            <span class="summary-value free-shipping">Free</span>
+                        </div>
+                        <div class="summary-divider">
+                            <div class="summary-total">
+                                <span class="total-label">Total:</span>
+                                <span class="total-price">PKR ${total.toLocaleString()}</span>
+                            </div>
+                        </div>
+                        <button class="checkout-button" onclick="checkout(${total})">Proceed to Checkout</button>
+                        <button class="continue-shopping-btn" onclick="toggleCart()">Continue Shopping</button>
+                        <div class="benefits">
+                            <div class="benefit-item">
+                                <svg class="benefit-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg>
+                                <span>Authentic Products</span>
+                            </div>
+                            <div class="benefit-item">
+                                <svg class="benefit-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M18 6.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5S20.33 5 19.5 5 18 5.67 18 6.5m2 15c0 1.1-.9 2-2 2h-12c-1.1 0-2-.9-2-2v-1h16v1zm-16-3h16V9h-16v8.5z"></path></svg>
+                                <span>Fast Delivery</span>
+                            </div>
+                            <div class="benefit-item">
+                                <svg class="benefit-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"></path></svg>
+                                <span>Secure Payment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Update Quantity
+        function updateQuantity(id, quantity) {
+            if (quantity <= 0) {
+                removeFromCart(id);
+            } else {
+                const item = cart.find(c => c.phone.id === id);
+                if (item) {
+                    item.quantity = quantity;
+                    saveCartToLocalStorage();
+                    updateCartCount();
+                    renderCart();
+                }
+            }
+        }
+
+        // Remove from Cart
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.phone.id !== id);
+            saveCartToLocalStorage();
+            updateCartCount();
+            renderCart();
+        }
+
+        // Checkout
+        function checkout(total) {
+            alert(`Thank you for your order!\n\nTotal: PKR ${total.toLocaleString()}\n\nOur team will contact you shortly at 03006073975 to confirm payment and delivery details.\n\nThank you for choosing PHONE DEALS!`);
+            cart = [];
+            saveCartToLocalStorage();
+            updateCartCount();
+            toggleCart();
+        }
+
+        // Update Cart Count
+        function updateCartCount() {
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const badge = document.getElementById('cart-count');
+            if (count > 0) {
+                badge.textContent = count;
+                badge.style.display = 'flex';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+
+        // Local Storage Functions
+        function saveCartToLocalStorage() {
+            localStorage.setItem('phoneDealsCart', JSON.stringify(cart));
+        }
+
+        function loadCartFromLocalStorage() {
+            const saved = localStorage.getItem('phoneDealsCart');
+            if (saved) {
+                cart = JSON.parse(saved).map(item => ({
+                    phone: iPhoneProducts.find(p => p.id === item.phone.id),
+                    quantity: item.quantity
+                })).filter(item => item.phone);
+                updateCartCount();
+            }
+        }
+    </script>
+</body>
+</html>
